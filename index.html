@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEICO S.A. × BEVGO | INFORME ESTRATÉGICO SANTA MARTA 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --red:      #C62828;
+            --red-b:    #EF5350;
+            --red-d:    #7B0000;
+            --vino:     #4A0E0E;
+            --blush:    #FFEBEE;
+            --pink:     #FFCDD2;
+            --white:    #FFFFFF;
+            --off:      #FAFAFA;
+            --bg:       #F6F0EF;
+            --dark:     #1A0A0A;
+            --body:     #3D2424;
+            --muted:    #8C6060;
+            --border:   rgba(198,40,40,0.12);
+            --meico:    #1A3A8F;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+        /* ═══ NAV ═══ */
+        nav {
+            position: sticky; top: 0; z-index: 9000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 3px solid var(--red);
+            padding: 0 5%;
+            display: flex; justify-content: flex-end; align-items: center;
+            height: 72px;
+            box-shadow: 0 4px 30px rgba(198,40,40,0.1);
+        }
+        /* ── NAV logos (izquierda) ── */
+        .nav-logos {
+            display: flex; align-items: center; gap: 12px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 6px 16px;
+            border: 1.5px solid rgba(198,40,40,0.1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+        .nav-logo-pill {
+            display: flex; align-items: center; justify-content: center;
+            height: 44px; padding: 0 8px;
+            background: transparent;
+        }
+        .nav-logo-pill.bevgo-pill { background: transparent; }
+        .nav-logo-img { height: 32px; width: auto; object-fit: contain; display: block; }
+        .nav-logo-img.bevgo { height: 28px; filter: invert(1) brightness(0); }
+        .nav-logo-x {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem; font-weight: 900;
+            color: var(--red); opacity: 0.4; line-height: 1;
+        }
+        /* ── NAV derecha: título + pills ── */
+        .nav-right {
+            display: flex; align-items: center; gap: 20px;
+        }
+        .nav-divider { width: 1px; height: 32px; background: var(--border); }
+        .nav-campaign {
+            display: flex; flex-direction: column;
+        }
+        .nav-camp-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.95rem; font-weight: 800;
+            color: var(--red); letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-camp-sub {
+            font-size: 0.62rem; color: var(--muted);
+            letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+        }
+        .nav-pills { display: flex; gap: 6px; }
+        .pill {
+            background: none; border: 1.5px solid #DDD;
+            padding: 7px 16px; border-radius: 30px;
+            cursor: pointer; font-weight: 700; font-size: 0.7rem;
+            letter-spacing: 1px; text-transform: uppercase;
+            transition: all 0.25s; color: var(--body); font-family: 'Barlow', sans-serif;
+        }
+        .pill.active, .pill:hover {
+            background: var(--red); color: white; border-color: var(--red);
+            box-shadow: 0 4px 15px rgba(198,40,40,0.3);
+        }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 94vh;
+            display: flex; flex-direction: row;
+            align-items: stretch;
+            padding: 0;
+            background: linear-gradient(160deg, var(--vino) 0%, var(--red-d) 40%, var(--red) 78%, var(--red-b) 100%);
+            position: relative; overflow: hidden;
+        }
+        /* panel izquierdo: logos sobre fondo blanco */
+        .hero-logos-panel {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: #fff;
+            width: 38%; min-width: 320px;
+            padding: 40px 36px;
+            box-shadow: 6px 0 48px rgba(0,0,0,0.22);
+            gap: 0;
+        }
+        .hero-logos-panel .hl-meico {
+            background: transparent;
+            padding: 16px 0 8px;
+            display: flex; align-items: center; justify-content: center;
+            width: 100%;
+            border: none; box-shadow: none;
+        }
+        .hero-logos-panel .hl-meico img {
+            width: 160px; max-width: 100%; height: auto; display: block; margin: 0 auto;
+        }
+        .hero-logos-panel .hl-sep {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem; font-weight: 900;
+            color: var(--red); opacity: 0.28; line-height: 1;
+            margin: 20px 0;
+        }
+        .hero-logos-panel .hl-divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(198,40,40,0.25), transparent);
+            margin: 8px 0;
+        }
+        .hero-logos-panel .hl-bevgo {
+            background: #0d0d0d;
+            border-radius: 16px;
+            padding: 18px 28px;
+            border: 1.5px solid rgba(255,255,255,0.06);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.28);
+            display: flex; align-items: center; justify-content: center;
+            width: 100%;
+        }
+        .hero-logos-panel .hl-bevgo img {
+            width: 140px; max-width: 100%; height: auto; display: block;
+        }
+        /* panel derecho: texto + KPIs */
+        .hero-content {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: flex-start; justify-content: center;
+            flex: 1; padding: 80px 6% 120px;
+            text-align: left;
+            overflow: hidden;
+        }
+        /* Imagen de fondo empresarial en el panel rojo */
+        .hero-content::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200&q=80&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            opacity: 0.18;
+        }
+        .hero-content > * { position: relative; z-index: 1; }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+        }
+        .hero-dot-pattern {
+            position: absolute; inset: 0; opacity: 0.04;
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .hero-badge {
+            position: relative;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.28);
+            padding: 8px 22px; border-radius: 50px;
+            color: white; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 28px;
+            animation: fD 0.8s ease both;
+            align-self: flex-start;
+        }
+
+        /* ── HERO logo row ── */
+        .hero-logos-row {
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; margin-bottom: 32px;
+            animation: fD 0.8s 0.05s ease both;
+        }
+        .hero-logo-wrap {
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.17);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255,255,255,0.42);
+            border-radius: 22px;
+            padding: 16px 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.16),
+                        inset 0 1px 0 rgba(255,255,255,0.22);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .hero-logo-wrap:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(0,0,0,0.24); }
+        .hero-logo-wrap img {
+            height: 60px; width: auto; object-fit: contain; display: block;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+        .hero-logo-wrap.bevgo-wrap {
+            background: rgba(0,0,0,0.52);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .hero-logo-wrap.bevgo-wrap img {
+            filter: brightness(1.1) drop-shadow(0 2px 10px rgba(0,0,0,0.45));
+        }
+        .hero-x {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.4rem; font-weight: 900;
+            color: rgba(255,255,255,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: -1px; line-height: 1;
+        }
+
+        .hero h1 {
+            position: relative;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(3rem, 8vw, 7.5rem);
+            font-weight: 900; color: white;
+            text-transform: uppercase; line-height: 0.9;
+            letter-spacing: -2px; margin-bottom: 8px;
+            animation: fD 0.8s 0.1s ease both;
+        }
+        .hero h1 em { font-style: normal; color: rgba(255,210,210,0.85); }
+
+        .hero-sub {
+            position: relative;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.9rem); font-weight: 600;
+            color: rgba(255,255,255,0.7); text-transform: uppercase;
+            letter-spacing: 8px; margin-bottom: 32px;
+            animation: fD 0.8s 0.15s ease both;
+        }
+        .hero-desc {
+            position: relative;
+            max-width: 600px; font-size: 1.05rem;
+            color: rgba(255,255,255,0.8); line-height: 1.8;
+            font-weight: 300; margin-bottom: 50px;
+            animation: fD 0.8s 0.2s ease both;
+        }
+        .hero-kpis {
+            position: relative;
+            display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;
+            animation: fD 0.8s 0.28s ease both;
+        }
+        .hero-kpi {
+            background: rgba(255,255,255,0.11);
+            border: 1px solid rgba(255,255,255,0.22);
+            backdrop-filter: blur(8px);
+            padding: 20px 28px; border-radius: 18px; color: white; text-align: center;
+            min-width: 110px;
+        }
+        .hero-kpi-val {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3.2rem; font-weight: 900; line-height: 1;
+        }
+        .hero-kpi-lab {
+            font-size: 0.6rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.68; margin-top: 5px;
+        }
+        .hero-scroll {
+            position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.45); font-size: 0.65rem;
+            letter-spacing: 3px; text-transform: uppercase;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            animation: bounce 2.2s infinite;
+        }
+
+        /* ═══ LAYOUTS ═══ */
+        .wrap { max-width: 1340px; margin: 0 auto; padding: 0 24px; }
+        .sec-head { text-align: center; padding: 70px 0 44px; }
+        .eyebrow {
+            display: inline-block; font-size: 0.68rem; font-weight: 800;
+            letter-spacing: 5px; text-transform: uppercase;
+            color: var(--red); margin-bottom: 12px;
+        }
+        .sec-h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 900;
+            color: var(--vino); letter-spacing: -1px; line-height: 1; margin-bottom: 14px;
+        }
+        .sec-lead {
+            font-size: 0.97rem; color: var(--muted);
+            max-width: 600px; margin: 0 auto; line-height: 1.7;
+        }
+        .band-light { background: var(--bg); padding: 10px 0 80px; }
+        .band-white { background: white; padding: 10px 0 80px; }
+        .band-dark {
+            background: linear-gradient(150deg, var(--vino) 0%, var(--red-d) 60%, #1A0000 100%);
+            padding: 80px 0; color: white;
+        }
+
+        /* ═══ EXEC SUMMARY ═══ */
+        .exec-card {
+            background: white; border-radius: 28px; overflow: hidden;
+            box-shadow: 0 30px 90px rgba(198,40,40,0.13);
+            display: grid; grid-template-columns: 1.15fr 1fr;
+            border: 1px solid var(--border);
+            margin-top: -56px; position: relative; z-index: 10;
+        }
+        .exec-left { padding: 52px 56px; border-right: 1px solid #F0E8E8; }
+        .exec-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--blush); color: var(--red);
+            font-size: 0.68rem; font-weight: 800;
+            letter-spacing: 3px; text-transform: uppercase;
+            padding: 7px 18px; border-radius: 50px; margin-bottom: 22px;
+        }
+        .exec-h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.8rem; font-weight: 900; color: var(--vino);
+            line-height: 1; letter-spacing: -1px; margin-bottom: 20px;
+        }
+        .exec-text {
+            font-size: 0.97rem; color: var(--body);
+            line-height: 1.8; margin-bottom: 22px; text-align: justify;
+        }
+        .hl {
+            background: linear-gradient(135deg, var(--blush), #FFE0E0);
+            border-left: 5px solid var(--red);
+            border-radius: 0 14px 14px 0;
+            padding: 16px 20px; margin-bottom: 14px;
+        }
+        .hl h4 {
+            font-size: 0.7rem; font-weight: 800; color: var(--red);
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;
+        }
+        .hl p { font-size: 0.88rem; color: var(--body); line-height: 1.55; }
+
+        .exec-right { padding: 52px 44px; background: var(--off); display: flex; flex-direction: column; justify-content: center; }
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+        .kpi-card {
+            background: white; border-radius: 18px; padding: 22px 16px;
+            text-align: center; border: 1px solid #F0E8E8;
+            box-shadow: 0 4px 16px rgba(198,40,40,0.07);
+            transition: transform 0.25s;
+        }
+        .kpi-card:hover { transform: translateY(-3px); }
+        .kpi-val {
+            display: block; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.9rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .kpi-lab {
+            font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--muted); margin-top: 7px;
+        }
+        .kpi-card.acc {
+            background: linear-gradient(135deg, var(--red), var(--vino));
+        }
+        .kpi-card.acc .kpi-val, .kpi-card.acc .kpi-lab { color: white; }
+
+        .bar-sec { margin-top: 8px; }
+        .bar-row { margin-bottom: 14px; }
+        .bar-lbl {
+            display: flex; justify-content: space-between;
+            font-size: 0.76rem; font-weight: 700; color: var(--body); margin-bottom: 5px;
+        }
+        .bar-track { height: 8px; background: #F0E8E8; border-radius: 8px; overflow: hidden; }
+        .bar-fill {
+            height: 100%; border-radius: 8px;
+            background: linear-gradient(90deg, var(--red), var(--vino));
+            transition: width 1.2s ease;
+        }
+
+        /* ═══ PDV CARDS ═══ */
+        .pdv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .pdv-card {
+            background: white; border-radius: 24px; overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 40px rgba(198,40,40,0.09);
+            display: flex; flex-direction: column;
+        }
+        .pdv-head {
+            padding: 28px 32px; display: flex; align-items: center; gap: 18px; color: white;
+        }
+        .pdv-head.sp { background: linear-gradient(135deg, var(--red), var(--vino)); }
+        .pdv-head.zz { background: linear-gradient(135deg, var(--red-d), var(--vino)); }
+        .pdv-head i { font-size: 2.2rem; opacity: 0.8; }
+        .pdv-head h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem; font-weight: 900; line-height: 1; letter-spacing: -0.5px;
+        }
+        .pdv-head span { font-size: 0.65rem; font-weight: 700; letter-spacing: 2.5px; opacity: 0.7; text-transform: uppercase; }
+        .pdv-body { padding: 30px 32px; flex: 1; }
+
+        .mini-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 26px; }
+        .mk {
+            background: var(--blush); border-radius: 14px;
+            padding: 14px 8px; text-align: center;
+        }
+        .mk-val {
+            display: block; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .mk-lab {
+            font-size: 0.56rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--muted); margin-top: 4px;
+        }
+
+        .prod-title {
+            font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--muted); margin-bottom: 10px;
+        }
+        .prod-list { list-style: none; }
+        .prod-list li {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 9px 0; border-bottom: 1px solid #F5ECEC; font-size: 0.86rem;
+        }
+        .prod-list li:last-child { border-bottom: none; }
+        .prod-name { color: var(--body); font-weight: 500; }
+        .prod-badge {
+            background: var(--red); color: white;
+            font-size: 0.68rem; font-weight: 800;
+            padding: 3px 10px; border-radius: 20px; min-width: 38px; text-align: center;
+        }
+        .pdv-insight {
+            background: var(--blush); border-radius: 14px;
+            padding: 14px 18px; margin-top: 18px;
+        }
+        .pdv-insight-label {
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--red); margin-bottom: 5px;
+        }
+        .pdv-insight p { font-size: 0.84rem; color: var(--body); line-height: 1.55; }
+
+        /* ═══ TIMELINE ═══ */
+        .tl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+        .tl-brand {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.7rem; font-weight: 900; color: var(--vino);
+            margin-bottom: 26px; letter-spacing: -0.5px;
+        }
+        .tl { position: relative; padding-left: 46px; }
+        .tl::before {
+            content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--red), var(--vino)); border-radius: 3px;
+        }
+        .tl-item { position: relative; margin-bottom: 30px; }
+        .tl-dot {
+            position: absolute; left: -38px; top: 4px;
+            width: 18px; height: 18px; background: var(--red);
+            border: 3px solid white; border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--red);
+        }
+        .tl-date {
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2.5px; color: var(--red); margin-bottom: 7px;
+        }
+        .tl-card {
+            background: white; border-radius: 14px; padding: 18px 22px;
+            border: 1px solid var(--border); box-shadow: 0 3px 16px rgba(198,40,40,0.07);
+        }
+        .tl-card.peak { border-color: var(--red); box-shadow: 0 4px 20px rgba(198,40,40,0.2); }
+        .tl-card strong { font-size: 0.9rem; color: var(--body); }
+        .tl-card.peak strong { color: var(--red); }
+        .tl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+        .tl-stat {
+            background: var(--blush); border-radius: 10px;
+            padding: 10px 12px; text-align: center;
+        }
+        .tl-stat strong {
+            display: block; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.6rem; font-weight: 900; color: var(--red);
+        }
+        .tl-stat span { font-size: 0.6rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ═══ PRODUCTOS ═══ */
+        .prod-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .prod-card {
+            background: white; border-radius: 20px; padding: 26px 20px;
+            text-align: center; border: 1px solid var(--border);
+            box-shadow: 0 4px 18px rgba(198,40,40,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .prod-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 4px; background: linear-gradient(90deg, var(--red), var(--red-b));
+            transform: scaleX(0); transition: transform 0.3s;
+        }
+        .prod-card:hover { transform: translateY(-5px); box-shadow: 0 18px 45px rgba(198,40,40,0.17); }
+        .prod-card:hover::after { transform: scaleX(1); }
+        .prod-card i { font-size: 2.2rem; color: var(--red); margin-bottom: 12px; opacity: 0.8; }
+        .prod-card h5 {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem;
+            font-weight: 800; color: var(--vino); margin-bottom: 7px; letter-spacing: -0.3px;
+        }
+        .prod-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+        .prod-total {
+            display: block; margin-top: 12px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.2rem; font-weight: 900; color: var(--red);
+        }
+        .prod-total-lab {
+            font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--muted);
+        }
+
+        /* ═══ CARRUSEL GALERÍA ═══ */
+        .carousel-section { background: var(--bg); padding: 0 0 80px; }
+        .carousel-outer {
+            position: relative; overflow: hidden;
+            border-radius: 0; margin: 0;
+        }
+        .carousel-track {
+            display: flex; gap: 16px; padding: 10px 24px;
+            overflow-x: auto; scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-item {
+            flex: 0 0 calc(25% - 12px);
+            scroll-snap-align: start;
+            border-radius: 16px; overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer; position: relative;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+            border: 2px solid transparent;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .carousel-item:hover {
+            border-color: var(--red); transform: translateY(-4px);
+        }
+        .carousel-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; transition: transform 0.5s;
+        }
+        .carousel-item:hover img { transform: scale(1.07); }
+        .carousel-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(74,14,14,0.8) 0%, transparent 55%);
+            opacity: 0; transition: opacity 0.3s;
+            display: flex; align-items: flex-end; padding: 14px;
+        }
+        .carousel-item:hover .carousel-overlay { opacity: 1; }
+        .carousel-overlay span {
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase; color: white;
+        }
+
+        .carousel-nav-row {
+            display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 24px;
+        }
+        .car-btn {
+            width: 46px; height: 46px; border-radius: 50%; border: none;
+            background: var(--red); color: white; cursor: pointer; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(198,40,40,0.3); transition: background 0.2s, transform 0.2s;
+        }
+        .car-btn:hover { background: var(--vino); transform: scale(1.1); }
+        .carousel-dots {
+            display: flex; gap: 8px;
+        }
+        .carousel-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #D0B0B0; cursor: pointer; transition: all 0.3s;
+        }
+        .carousel-dot.active {
+            background: var(--red); width: 24px; border-radius: 4px;
+        }
+        .gallery-count {
+            text-align: center; margin-bottom: 16px;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--muted);
+        }
+
+        /* ═══ LIGHTBOX ═══ */
+        .lightbox {
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(10,0,0,0.95);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        .lightbox.open { opacity: 1; pointer-events: all; }
+        .lb-img-wrap {
+            max-width: 88vw; max-height: 88vh; position: relative;
+        }
+        .lb-img-wrap img {
+            max-width: 88vw; max-height: 88vh;
+            border-radius: 14px; display: block;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+        }
+        .lb-close {
+            position: absolute; top: 22px; right: 26px;
+            color: rgba(255,255,255,0.7); font-size: 2.2rem;
+            cursor: pointer; line-height: 1; transition: color 0.2s;
+        }
+        .lb-close:hover { color: white; }
+        .lb-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(198,40,40,0.7); color: white; border: none;
+            cursor: pointer; width: 48px; height: 48px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; transition: background 0.2s;
+        }
+        .lb-nav-btn:hover { background: var(--red); }
+        .lb-prev { left: -68px; }
+        .lb-next { right: -68px; }
+        .lb-counter {
+            position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%);
+            font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 2px;
+        }
+
+        /* ═══ INSIGHTS CONSUMIDOR ═══ */
+        .ins-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+        .ins-card {
+            background: white; border-radius: 20px; padding: 30px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 25px rgba(198,40,40,0.07);
+            position: relative; overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .ins-card:hover { transform: translateY(-4px); }
+        .ins-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; background: linear-gradient(90deg, var(--red), var(--red-b));
+        }
+        .ins-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--red), var(--vino));
+            border-radius: 13px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.4rem; color: white;
+            margin-bottom: 16px;
+        }
+        .ins-card h4 {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem;
+            font-weight: 800; color: var(--vino); margin-bottom: 9px;
+        }
+        .ins-card p { font-size: 0.88rem; color: var(--body); line-height: 1.6; }
+        .ins-pct {
+            display: block; margin-top: 12px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.8rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .ins-pct-lab { font-size: 0.62rem; font-weight: 700; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+        /* Palabras clave */
+        .brand-words-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 50px; }
+        .bw-card {
+            background: white; border-radius: 20px; padding: 28px;
+            border: 1px solid var(--border); text-align: center;
+        }
+        .bw-title {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.9rem;
+            font-weight: 900; color: var(--vino); margin-bottom: 18px;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .tag {
+            background: var(--blush); color: var(--red);
+            padding: 6px 16px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+        }
+
+        /* ═══ RECOMENDACIONES ═══ */
+        .reco-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+        .reco-card {
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 22px; padding: 34px 28px; color: white;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .reco-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-5px); }
+        .reco-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 4rem; font-weight: 900;
+            color: rgba(255,255,255,0.1); line-height: 1; margin-bottom: -8px;
+        }
+        .reco-card i { font-size: 1.9rem; color: var(--red-b); margin-bottom: 14px; display: block; }
+        .reco-card h4 {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.45rem;
+            font-weight: 800; margin-bottom: 10px; letter-spacing: -0.4px;
+        }
+        .reco-card p { font-size: 0.87rem; opacity: 0.74; line-height: 1.65; }
+
+        /* Métricas finales */
+        .final-metrics {
+            margin-top: 60px;
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 24px; padding: 46px; text-align: center;
+        }
+        .fm-eyebrow {
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 5px;
+            text-transform: uppercase; color: var(--red-b); margin-bottom: 32px;
+        }
+        .fm-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 24px; }
+        .fm-item { text-align: center; }
+        .fm-val {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3.5rem; font-weight: 900; color: white; line-height: 1;
+        }
+        .fm-lab {
+            font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: rgba(255,255,255,0.45); margin-top: 7px;
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            background: var(--vino);
+            padding: 70px 5% 36px; text-align: center; color: white;
+        }
+        .footer-logos-row {
+            display: flex; align-items: center; justify-content: center;
+            gap: 24px; margin-bottom: 30px;
+        }
+        .footer-logo-wrap {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 14px; padding: 12px 24px;
+            display: flex; align-items: center;
+        }
+        .footer-logo-wrap img { height: 44px; width: auto; object-fit: contain; }
+        .footer-logo-wrap.bev { background: rgba(0,0,0,0.3); }
+        .footer-tag {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 8px;
+            text-transform: uppercase; opacity: 0.45; margin-bottom: 46px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(4,1fr);
+            gap: 24px; max-width: 1100px; margin: 0 auto 50px;
+        }
+        .f-block {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px; padding: 30px 24px;
+        }
+        .f-block i { font-size: 2rem; color: var(--red-b); margin-bottom: 14px; display: block; }
+        .f-block h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 9px; }
+        .f-block p { font-size: 0.82rem; opacity: 0.6; line-height: 1.6; }
+        .footer-copy {
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px;
+            font-size: 0.75rem; opacity: 0.35; letter-spacing: 1px;
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        @keyframes fD { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:none; } }
+        @keyframes bounce {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        .reveal { opacity:0; transform:translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity:1; transform:none; }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width:1100px) {
+            .exec-card { grid-template-columns:1fr; }
+            .exec-left { border-right:none; border-bottom:1px solid #F0E8E8; }
+            .pdv-grid { grid-template-columns:1fr; }
+            .tl-grid { grid-template-columns:1fr; }
+            .ins-grid { grid-template-columns:1fr 1fr; }
+            .reco-grid { grid-template-columns:1fr 1fr; }
+            .prod-grid { grid-template-columns:repeat(2,1fr); }
+            .footer-grid { grid-template-columns:repeat(2,1fr); }
+            .fm-grid { grid-template-columns:repeat(3,1fr); }
+            .carousel-item { flex: 0 0 calc(33% - 10px); }
+        }
+        @media (max-width:900px) {
+            .hero { flex-direction: column; }
+            .hero-logos-panel { width: 100%; min-width: unset; flex-direction: row; padding: 32px; gap: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+            .hero-logos-panel .hl-sep { margin: 0 16px; }
+            .hero-content { padding: 40px 5% 80px; text-align: center; align-items: center; }
+            .hero-kpis { justify-content: center; }
+        }
+        @media (max-width:768px) {
+            .nav-pills { display:none; }
+            .hero h1 { font-size:3.2rem; }
+            .ins-grid { grid-template-columns:1fr; }
+            .reco-grid { grid-template-columns:1fr; }
+            .brand-words-grid { grid-template-columns:1fr; }
+            .prod-grid { grid-template-columns:repeat(2,1fr); }
+            .fm-grid { grid-template-columns:repeat(2,1fr); }
+            .carousel-item { flex: 0 0 calc(50% - 8px); }
+            .lb-prev { left: 10px; }
+            .lb-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <div class="nav-right">
+        <div class="nav-campaign">
+            <div class="nav-camp-title">Informe Estratégico</div>
+            <div class="nav-camp-sub">Santa Marta · Abril 2026</div>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-pills">
+            <button class="pill active" onclick="goTo('executive')">Resumen</button>
+            <button class="pill" onclick="goTo('pdv')">PDVs</button>
+            <button class="pill" onclick="goTo('galeria')">Galería</button>
+            <button class="pill" onclick="goTo('consumidor')">Shopper</button>
+            <button class="pill" onclick="goTo('recomendaciones')">Estrategia</button>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <div class="hero-dot-pattern"></div>
+
+    <!-- Panel izquierdo: logos grandes fondo blanco -->
+    <div class="hero-logos-panel">
+        <div class="hl-meico">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAKjBDUDASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAcIBAUGAgED/8QATxABAAIBAgIEBg0LAwIEBgMAAAECAwQFBhEHITFxEhMyQVFhFBUiNlJyc4GRobHB0RYXIzNCVFVidJOzQ5LhlLIlNFPSJDVjZILCRIOi/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAEEBQMCBv/EAC0RAQACAgECBQQDAQADAQEAAAABAgMRBBIxBSEyQVETFDNxFSJhQiOBkVKh/9oADAMBAAIRAxEAPwCcwEoAAZVPIr3PTzTyK9z0hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5fyLdzEZd/It3MRIACAAAAAAGVTyK9z0808ivc9ISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+X8i3cxGXfyLdzESAAgAAAAABlU8ivc9PNPIr3PSEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPl/It3MRl38i3cxEgAIAAAAAAZVPIr3PTzTyK9z0hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5fyLdzEZd/It3MRIACAAAAAAGVTyK9z0808ivc9ISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+X8i3cxGXfyLdzESAAgAAAAABlU8ivc9PNPIr3PSEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPl/It3MRl38i3cxEgAIAAAAAAZVPIr3PTzTyK9z0hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5fyLdzEZd/It3MRIACAAAAAAGVTyK9z0808ivc9ISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+X8i3cxGXfyLdzESAAgAAAAABlU8ivc9PNPIr3PSEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPl/It3MRl38i3cxEgAIAAAAAAZVPIr3PTzTyK9z0hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5fyLdzEZd/It3MRIACAAAAAAGVTyK9z0808ivc9ISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+X8i3cxGXfyLdzESAAgAAAAABlU8ivc9PNPIr3PSEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPl/It3MRl38i3cxEgAIAAAAAAZVPIr3PTzTyK9z0hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5fyLdzEZd/It3MRIACAAAAAAGVTyK9z0808ivc9ISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+X8i3cxGXfyLdzESAAgAAAAABlU8ivc9PNPIr3PSEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPl/I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" alt="Meico S.A.">
+        </div>
+        <div class="hl-divider"></div>
+        <div class="hl-bevgo">
+            <img src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFB//Z" alt="Bevgo">
+        </div>
+    </div>
+
+    <!-- Panel derecho: contenido -->
+    <div class="hero-content">
+        <div class="hero-badge" style="margin-bottom:28px;"><i class="fas fa-map-marker-alt"></i>&nbsp; Santa Marta, Colombia · Abril 2026</div>
+        <h1>Resultados de<br><em>Ejecución</em></h1>
+        <div class="hero-sub">Activación Premium · Bevgo Santa Marta · Abril 2026</div>
+        <p class="hero-desc">
+            Activación premium de <strong>4 días continuos</strong> en los puntos de venta <strong>Bevgo San Pedro</strong> y <strong>Bevgo Zazue</strong> en Santa Marta. Degustación directa de licores y vinos premium, conversión sell-out inmediata y construcción de brand equity en el canal especializado del Caribe colombiano.
+        </p>
+        <div class="hero-kpis">
+            <div class="hero-kpi"><span class="hero-kpi-val">153</span><div class="hero-kpi-lab">Ventas Totales</div></div>
+            <div class="hero-kpi"><span class="hero-kpi-val">248</span><div class="hero-kpi-lab">Clientes Abordados</div></div>
+            <div class="hero-kpi"><span class="hero-kpi-val">118</span><div class="hero-kpi-lab">Impactos Degustación</div></div>
+            <div class="hero-kpi"><span class="hero-kpi-val">35</span><div class="hero-kpi-lab">PDVs Ejecutados</div></div>
+            <div class="hero-kpi"><span class="hero-kpi-val">4</span><div class="hero-kpi-lab">Días de Campaña</div></div>
+        </div>
+    </div>
+    <div class="hero-scroll"><i class="fas fa-chevron-down"></i><span>Ver Informe</span></div>
+</section>
+
+<!-- ═══ EXEC SUMMARY ═══ -->
+<div id="executive" class="band-light">
+<div class="wrap">
+    <div class="exec-card reveal">
+        <div class="exec-left">
+            <div class="exec-tag"><i class="fas fa-chart-line"></i>&nbsp; Resumen Ejecutivo</div>
+            <div class="exec-h3">Ejecución Premium<br>en Canal Especializado</div>
+            <p class="exec-text">La campaña Meico en Santa Marta se ejecutó durante <strong>4 días consecutivos</strong> (1 al 4 de abril de 2026) en los dos puntos de venta BEVGO más estratégicos de la ciudad. La activación integró degustación activa, conversación directa con el shopper y sell-out inmediato de un portafolio premium de whiskies y vinos seleccionados de primer nivel.</p>
+            <p class="exec-text">El resultado consolidado fue <strong>153 unidades vendidas</strong>, 248 clientes efectivamente abordados y 118 impactos de degustación, configurando una tasa de conversión del <strong>62%</strong> sobre degustaciones — altamente eficiente para canal de licorería especializada en el Caribe colombiano.</p>
+            <div class="hl">
+                <h4><i class="fas fa-fire"></i> Hito de Campaña</h4>
+                <p>El <strong>4 de abril</strong> marcó el pico máximo en ambos PDVs. Old Parr 750ml protagonizó la jornada: <strong>25 unidades en San Pedro</strong> y <strong>28 unidades en Zazue</strong> en un solo día, validando la demanda latente del shopper caribeño por whisky premium.</p>
+            </div>
+            <div class="hl">
+                <h4><i class="fas fa-glass-cheers"></i> Portafolio Estrella</h4>
+                <p>Diageo dominó el mix con <strong>Old Parr y Buchanans</strong> como líderes de sell-out. <strong>Vino Lambrusco Rosado</strong> fue la referencia vinícola más dinámica, confirmando el crecimiento del segmento vino en el canal especializado de Santa Marta.</p>
+            </div>
+            <div class="hl">
+                <h4><i class="fas fa-user-friends"></i> Perfil del Shopper</h4>
+                <p>Adulto joven <strong>25-34 años</strong>, género equilibrado, preferencia absoluta por la licorera especializada. El whisky concentra más del 60% del consumo. La degustación es el <strong>incentivo #1 de compra</strong>, validando el modelo de activación in-store.</p>
+            </div>
+        </div>
+        <div class="exec-right">
+            <div class="kpi-grid">
+                <div class="kpi-card acc"><span class="kpi-val">75</span><div class="kpi-lab">Ventas San Pedro</div></div>
+                <div class="kpi-card acc"><span class="kpi-val">78</span><div class="kpi-lab">Ventas Zazue</div></div>
+                <div class="kpi-card"><span class="kpi-val">110</span><div class="kpi-lab">Clientes San Pedro</div></div>
+                <div class="kpi-card"><span class="kpi-val">138</span><div class="kpi-lab">Clientes Zazue</div></div>
+                <div class="kpi-card"><span class="kpi-val">53</span><div class="kpi-lab">Degustación SP</div></div>
+                <div class="kpi-card"><span class="kpi-val">65</span><div class="kpi-lab">Degustación Zazue</div></div>
+            </div>
+            <div class="bar-sec">
+                <div style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px;">Participación por PDV</div>
+                <div class="bar-row"><div class="bar-lbl"><span>Zazue — Ventas</span><span>78 uds</span></div><div class="bar-track"><div class="bar-fill" style="width:51%"></div></div></div>
+                <div class="bar-row"><div class="bar-lbl"><span>San Pedro — Ventas</span><span>75 uds</span></div><div class="bar-track"><div class="bar-fill" style="width:49%"></div></div></div>
+                <div class="bar-row"><div class="bar-lbl"><span>Zazue — Clientes</span><span>138</span></div><div class="bar-track"><div class="bar-fill" style="width:56%"></div></div></div>
+                <div class="bar-row"><div class="bar-lbl"><span>San Pedro — Clientes</span><span>110</span></div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div></div>
+                <div class="bar-row"><div class="bar-lbl"><span>Zazue — Degustaciones</span><span>65</span></div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div></div>
+                <div class="bar-row"><div class="bar-lbl"><span>San Pedro — Degustaciones</span><span>53</span></div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ PDV ═══ -->
+<div id="pdv" class="band-white">
+<div class="wrap">
+    <div class="sec-head reveal">
+        <div class="eyebrow">Puntos de Venta Activados</div>
+        <div class="sec-h2">Análisis por PDV</div>
+        <p class="sec-lead">Desempeño individual de cada tienda BEVGO durante los 4 días de la campaña en Santa Marta.</p>
+    </div>
+    <div class="pdv-grid reveal">
+        <div class="pdv-card">
+            <div class="pdv-head sp">
+                <i class="fas fa-store"></i>
+                <div><span>Tienda Especializada · Santa Marta</span><h3>Bevgo San Pedro</h3></div>
+            </div>
+            <div class="pdv-body">
+                <div class="mini-kpis">
+                    <div class="mk"><span class="mk-val">75</span><div class="mk-lab">Ventas</div></div>
+                    <div class="mk"><span class="mk-val">110</span><div class="mk-lab">Clientes</div></div>
+                    <div class="mk"><span class="mk-val">53</span><div class="mk-lab">Degustaciones</div></div>
+                </div>
+                <div class="prod-title">Portafolio Vendido — Total Campaña</div>
+                <ul class="prod-list">
+                    <li><span class="prod-name">Whisky Old Parr 750ml</span><span class="prod-badge">28</span></li>
+                    <li><span class="prod-name">Whisky Buchanans Master 750ml</span><span class="prod-badge">15</span></li>
+                    <li><span class="prod-name">Vino Lambrusco Rosado</span><span class="prod-badge">9</span></li>
+                    <li><span class="prod-name">Whisky Old Parr 1000ml</span><span class="prod-badge">8</span></li>
+                    <li><span class="prod-name">Vino Moelia Cabernet Sauv.</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Vino Moelia Merlot</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Buchanans 18 Años 750ml</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Buchanans Deluxe 750ml</span><span class="prod-badge">3</span></li>
+                    <li><span class="prod-name">Buchanans Deluxe 1000ml</span><span class="prod-badge">1</span></li>
+                    <li><span class="prod-name">Otros (Moelia Malbec, Villa Peña, Lambrusco B/T)</span><span class="prod-badge">5</span></li>
+                </ul>
+                <div class="pdv-insight">
+                    <div class="pdv-insight-label"><i class="fas fa-lightbulb"></i> Insight PDV</div>
+                    <p>El <strong>día 4 concentró el 39% del total de ventas</strong> con 29 unidades. Old Parr 750ml registró 25 unidades en una sola jornada de cierre, demostrando alta receptividad del shopper al producto premium en esta sede.</p>
+                </div>
+            </div>
+        </div>
+        <div class="pdv-card">
+            <div class="pdv-head zz">
+                <i class="fas fa-store-alt"></i>
+                <div><span>Tienda Especializada · Santa Marta</span><h3>Bevgo Zazue</h3></div>
+            </div>
+            <div class="pdv-body">
+                <div class="mini-kpis">
+                    <div class="mk"><span class="mk-val">78</span><div class="mk-lab">Ventas</div></div>
+                    <div class="mk"><span class="mk-val">138</span><div class="mk-lab">Clientes</div></div>
+                    <div class="mk"><span class="mk-val">65</span><div class="mk-lab">Degustaciones</div></div>
+                </div>
+                <div class="prod-title">Portafolio Vendido — Total Campaña</div>
+                <ul class="prod-list">
+                    <li><span class="prod-name">Whisky Old Parr 750ml</span><span class="prod-badge">31</span></li>
+                    <li><span class="prod-name">Vino Lambrusco Rosado</span><span class="prod-badge">17</span></li>
+                    <li><span class="prod-name">Whisky Old Parr 1000ml</span><span class="prod-badge">8</span></li>
+                    <li><span class="prod-name">Vino Moelia Rosado</span><span class="prod-badge">7</span></li>
+                    <li><span class="prod-name">Vino Moelia Blanco</span><span class="prod-badge">5</span></li>
+                    <li><span class="prod-name">Whisky Buchanans Master 1000ml</span><span class="prod-badge">3</span></li>
+                    <li><span class="prod-name">Buchanans 18 Años 750ml</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Buchanans Deluxe 750ml</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Vino Moelia Cabernet Sauv.</span><span class="prod-badge">2</span></li>
+                    <li><span class="prod-name">Whisky Buchanans Master 750ml</span><span class="prod-badge">1</span></li>
+                </ul>
+                <div class="pdv-insight">
+                    <div class="pdv-insight-label"><i class="fas fa-lightbulb"></i> Insight PDV</div>
+                    <p><strong>Mayor tráfico y penetración de vinos</strong> que San Pedro. Con 138 clientes y 65 degustaciones, Zazue superó en todas las métricas de interacción. El portafolio Moelia tuvo aquí su mayor penetración en toda la campaña.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ EVOLUCIÓN DIARIA ═══ -->
+<div class="band-light">
+<div class="wrap">
+    <div class="sec-head reveal">
+        <div class="eyebrow">Análisis Temporal</div>
+        <div class="sec-h2">Evolución Día a Día</div>
+        <p class="sec-lead">Comportamiento de impactos y clientes abordados en los 4 días de activación en ambos PDVs.</p>
+    </div>
+    <div class="tl-grid reveal">
+        <div>
+            <div class="tl-brand"><i class="fas fa-store" style="color:var(--red);margin-right:10px;font-size:1.4rem;"></i>Bevgo San Pedro</div>
+            <div class="tl">
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;1 de Abril 2026</div><div class="tl-card"><strong>Jornada de apertura — primeras interacciones activas</strong><div class="tl-row"><div class="tl-stat"><strong>13</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>20</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;2 de Abril 2026</div><div class="tl-card"><strong>Momentum creciente — mayor mix de referencias</strong><div class="tl-row"><div class="tl-stat"><strong>15</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>35</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;3 de Abril 2026</div><div class="tl-card"><strong>Portafolio diversificado — 8 referencias vendidas</strong><div class="tl-row"><div class="tl-stat"><strong>10</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>20</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;4 de Abril 2026</div><div class="tl-card peak"><strong>🏆 Jornada PICO — 29 unidades · Récord de campaña</strong><div class="tl-row"><div class="tl-stat"><strong>15</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>35</strong><span>Clientes</span></div></div></div></div>
+            </div>
+        </div>
+        <div>
+            <div class="tl-brand"><i class="fas fa-store-alt" style="color:var(--red);margin-right:10px;font-size:1.4rem;"></i>Bevgo Zazue</div>
+            <div class="tl">
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;1 de Abril 2026</div><div class="tl-card"><strong>Arranque sólido — referencias iniciales activadas</strong><div class="tl-row"><div class="tl-stat"><strong>15</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>23</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;2 de Abril 2026</div><div class="tl-card"><strong>Tráfico máximo — 40 clientes en un solo día</strong><div class="tl-row"><div class="tl-stat"><strong>20</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>40</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;3 de Abril 2026</div><div class="tl-card"><strong>Penetración vinos Moelia — mix premium elevado</strong><div class="tl-row"><div class="tl-stat"><strong>20</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>35</strong><span>Clientes</span></div></div></div></div>
+                <div class="tl-item"><div class="tl-dot"></div><div class="tl-date"><i class="fas fa-calendar-day"></i>&nbsp;4 de Abril 2026</div><div class="tl-card peak"><strong>🏆 Jornada PICO — 31 und Old Parr 750ml</strong><div class="tl-row"><div class="tl-stat"><strong>10</strong><span>Degustaciones</span></div><div class="tl-stat"><strong>40</strong><span>Clientes</span></div></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ PORTAFOLIO ═══ -->
+<div class="band-white">
+<div class="wrap">
+    <div class="sec-head reveal">
+        <div class="eyebrow">Portafolio Activado</div>
+        <div class="sec-h2">Marcas &amp; Productos</div>
+        <p class="sec-lead">Catálogo completo de referencias trabajadas con sus totales consolidados de la campaña.</p>
+    </div>
+    <div class="prod-grid reveal">
+        <div class="prod-card"><i class="fas fa-wine-bottle"></i><h5>Old Parr 750ml</h5><p>Producto estrella. Alta preferencia masculina 35-44 años. Mejor jornada: día 4.</p><span class="prod-total">59</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-wine-bottle"></i><h5>Old Parr 1000ml</h5><p>Formato premium con mayor ticket de compra. Compra planificada y recurrente.</p><span class="prod-total">16</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-award"></i><h5>Buchanans Master</h5><p>Referencia de alto valor aspiracional. Reconocimiento de marca 100% en shopper.</p><span class="prod-total">16</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-star"></i><h5>Buchanans 18 Años</h5><p>Ultra-premium. Compra de reafirmación de estatus en perfil adulto y maduro.</p><span class="prod-total">4</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-glass-cheers"></i><h5>Lambrusco Rosado</h5><p>Vino más dinámico. Alta aceptación femenina 25-34 años en ocasiones sociales.</p><span class="prod-total">26</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-wine-glass-alt"></i><h5>Vinos Moelia</h5><p>Rosado, Blanco, Cabernet, Merlot, Malbec. Penetración creciente en Zazue.</p><span class="prod-total">17</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-medal"></i><h5>Buchanans Deluxe</h5><p>750ml y 1000ml. Formato ideal para reuniones y celebraciones familiares.</p><span class="prod-total">6</span><div class="prod-total-lab">uds totales</div></div>
+        <div class="prod-card"><i class="fas fa-wine-glass"></i><h5>Otros Vinos</h5><p>Lambrusco Blanco, Tinto y Villa Peña Tinto. Complemento del portafolio vinícola.</p><span class="prod-total">9</span><div class="prod-total-lab">uds totales</div></div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ GALERÍA CARRUSEL ═══ -->
+<div id="galeria" class="carousel-section">
+<div class="sec-head reveal" style="padding-bottom:28px;">
+    <div class="eyebrow">Registro Visual de Campo</div>
+    <div class="sec-h2">Galería de Campaña</div>
+    <p class="sec-lead">Evidencia fotográfica de la activación Meico × BEVGO en los puntos de venta de Santa Marta.</p>
+</div>
+<div class="gallery-count" id="galleryCount"></div>
+<div class="carousel-outer">
+    <div class="carousel-track" id="carouselTrack"></div>
+</div>
+<div class="carousel-nav-row">
+    <button class="car-btn" id="carPrev" onclick="carNav(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-dots" id="carDots"></div>
+    <button class="car-btn" id="carNext" onclick="carNav(1)"><i class="fas fa-chevron-right"></i></button>
+</div>
+</div>
+
+<!-- ═══ VOZ DEL CONSUMIDOR ═══ -->
+<div id="consumidor" class="band-white">
+<div class="wrap">
+    <div class="sec-head reveal">
+        <div class="eyebrow">Inteligencia de Shopper · 57 Encuestas</div>
+        <div class="sec-h2">Voz del Consumidor</div>
+        <p class="sec-lead">Hallazgos estratégicos del perfil del comprador de licores en el canal especializado del Caribe colombiano.</p>
+    </div>
+    <div class="ins-grid reveal">
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-user-check"></i></div><h4>Perfil Dominante</h4><p>Adulto joven <strong>25-34 años</strong>, género equilibrado. El 67% visita de forma ocasional o 1-3 veces al mes, posicionando la degustación como palanca de activación perfecta.</p><span class="ins-pct">25-34</span><br><div class="ins-pct-lab">Rango Etario Principal</div></div>
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-wine-bottle"></i></div><h4>Whisky Como Rey</h4><p>El <strong>whisky concentra más del 60%</strong> de la preferencia. Buchanans lidera en intención de compra recurrente. Old Parr destaca por conversión inmediata en campaña con 59 unidades.</p><span class="ins-pct">60%+</span><br><div class="ins-pct-lab">Preferencia por Whisky</div></div>
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-store"></i></div><h4>Canal Especializado</h4><p>Más del <strong>75% prefiere la licorera especializada</strong> como punto de compra. BEVGO es el entorno correcto. La experiencia especializada crea diferenciación real vs. supermercado.</p><span class="ins-pct">75%+</span><br><div class="ins-pct-lab">Preferencia Canal Especializado</div></div>
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-thumbs-up"></i></div><h4>Recomendación Altísima</h4><p>Las tres marcas Diageo registran tasas de recomendación del <strong>97–100%</strong>. El equity de marca pre-construido facilita enormemente la conversión en punto de venta.</p><span class="ins-pct">98%</span><br><div class="ins-pct-lab">Tasa Promedio de Recomendación</div></div>
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-gift"></i></div><h4>El Incentivo que Convierte</h4><p>La <strong>degustación es el driver #1</strong> de compra, seguida de descuentos y obsequios. El consumidor Caribe valora la experiencia por encima del precio. Campaña perfectamente calibrada.</p><span class="ins-pct">#1</span><br><div class="ins-pct-lab">Degustación como Driver</div></div>
+        <div class="ins-card"><div class="ins-icon"><i class="fas fa-glass-cheers"></i></div><h4>El Vino Crece</h4><p>El <strong>87% de los encuestados consume vino</strong>. Lambrusco Rosado y Moelia lideran la mención espontánea. Reuniones con amigos y cenas románticas son las principales ocasiones.</p><span class="ins-pct">87%</span><br><div class="ins-pct-lab">Consumidores Activos de Vino</div></div>
+    </div>
+
+    <div class="brand-words-grid reveal">
+        <div class="bw-card">
+            <div class="bw-title">Old Parr</div>
+            <div class="tags"><span class="tag">Elegante</span><span class="tag">Premium</span><span class="tag">Accesible</span><span class="tag">Fuerte</span><span class="tag">Tradicional</span></div>
+        </div>
+        <div class="bw-card">
+            <div class="bw-title">Buchanans</div>
+            <div class="tags"><span class="tag">Premium</span><span class="tag">Exclusiva</span><span class="tag">Estatus</span><span class="tag">Celebración</span><span class="tag">Calidad</span></div>
+        </div>
+        <div class="bw-card">
+            <div class="bw-title">Smirnoff</div>
+            <div class="tags"><span class="tag">Fiesta</span><span class="tag">Juvenil</span><span class="tag">Accesible</span><span class="tag">Sabor</span><span class="tag">Confianza</span></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ RECOMENDACIONES ═══ -->
+<div id="recomendaciones" class="band-dark">
+<div class="wrap">
+    <div class="sec-head reveal" style="color:white;">
+        <div class="eyebrow" style="color:var(--red-b);">Inteligencia Estratégica</div>
+        <div class="sec-h2" style="color:white;">Recomendaciones<br>Próxima Fase</div>
+        <p class="sec-lead" style="color:rgba(255,255,255,0.6);">Acciones concretas derivadas del análisis de datos, comportamiento del shopper y desempeño de campaña.</p>
+    </div>
+    <div class="reco-grid reveal">
+        <div class="reco-card"><div class="reco-num">01</div><i class="fas fa-calendar-alt"></i><h4>Extender a 7 Días</h4><p>El día 4 fue el de mayor rendimiento en ambos PDVs. Una extensión de 3 días adicionales —especialmente fin de semana— potenciaría el sell-out en al menos un 40% adicional aprovechando la curva de adopción ya construida.</p></div>
+        <div class="reco-card"><div class="reco-num">02</div><i class="fas fa-wine-bottle"></i><h4>Old Parr 750ml como Eje</h4><p>Con 59 unidades en campaña, debe ser el eje principal de la próxima activación. Stock mínimo recomendado: 80 unidades por PDV por semana, con acuerdo de precio especial para degustación.</p></div>
+        <div class="reco-card"><div class="reco-num">03</div><i class="fas fa-glass-cheers"></i><h4>Escalar Penetración de Vinos</h4><p>El 87% del shopper consume vino. Moelia y Lambrusco demostraron alta aceptación. Se recomienda un bloque de degustación específico con maridaje para elevar el ticket promedio por cliente.</p></div>
+        <div class="reco-card"><div class="reco-num">04</div><i class="fas fa-users"></i><h4>Segmentar por Género y Edad</h4><p>Perfil femenino 25-34: alta afinidad con vinos rosados y espumosos. Masculino 35-44: whisky premium. Activaciones diferenciadas en la misma jornada maximizarán la conversión cruzada.</p></div>
+        <div class="reco-card"><div class="reco-num">05</div><i class="fas fa-tags"></i><h4>Mecánica de Obsequio</h4><p>El 35% de los encuestados señaló los obsequios como driver. "Lleva 2, lleva tu copa premium" activado viernes y sábados puede aumentar la compra múltiple hasta un 25% en las jornadas de mayor tráfico.</p></div>
+        <div class="reco-card"><div class="reco-num">06</div><i class="fas fa-map-marked-alt"></i><h4>Expandir por el Caribe</h4><p>Santa Marta crea el caso de negocio replicable en Barranquilla, Cartagena y Valledupar. El perfil del consumidor Caribe es consistente. Este informe es la propuesta de expansión de la alianza Meico × BEVGO.</p></div>
+    </div>
+    <div class="final-metrics reveal">
+        <div class="fm-eyebrow">Indicadores Finales de Campaña</div>
+        <div class="fm-grid">
+            <div class="fm-item"><div class="fm-val">153</div><div class="fm-lab">Ventas Totales</div></div>
+            <div class="fm-item"><div class="fm-val">248</div><div class="fm-lab">Clientes Abordados</div></div>
+            <div class="fm-item"><div class="fm-val">118</div><div class="fm-lab">Degustaciones</div></div>
+            <div class="fm-item"><div class="fm-val">62%</div><div class="fm-lab">Conversión Degustación</div></div>
+            <div class="fm-item"><div class="fm-val">57</div><div class="fm-lab">Encuestas Shopper</div></div>
+            <div class="fm-item"><div class="fm-val">100%</div><div class="fm-lab">Cobertura Ejecutada</div></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-tag">Informe Estratégico Confidencial · Santa Marta · Abril 2026</div>
+    <div class="footer-grid">
+        <div class="f-block"><i class="fas fa-chess-knight"></i><h4>Estrategia de Canal</h4><p>Diseñamos activaciones de alto impacto que convierten el shopper en comprador real y recurrente en el canal especializado.</p></div>
+        <div class="f-block"><i class="fas fa-microchip"></i><h4>Inteligencia de Datos</h4><p>Cada campaña genera datos accionables: voz del consumidor, sell-out, impactos y cobertura integrados en un informe ejecutivo.</p></div>
+        <div class="f-block"><i class="fas fa-handshake"></i><h4>Resultados Reales</h4><p>153 ventas, 248 clientes y 62% de conversión. Transformamos la ejecución de campo en Sell-Out tangible y medible para Meico.</p></div>
+        <div class="f-block"><i class="fas fa-expand-arrows-alt"></i><h4>Escalabilidad Caribe</h4><p>El modelo BEVGO Santa Marta es replicable en toda la Costa Caribe. Listos para expandir la alianza a escala regional.</p></div>
+    </div>
+    <div class="footer-copy">© 2026 Meico S.A. × BEVGO · Campaña Santa Marta · Informe Estratégico Confidencial · Abril 2026</div>
+</footer>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lightbox" id="lightbox">
+    <span class="lb-close" onclick="closeLB()">×</span>
+    <div class="lb-img-wrap">
+        <button class="lb-nav-btn lb-prev" onclick="navLB(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img id="lbImg" src="" alt="Galería Meico BEVGO Santa Marta">
+        <button class="lb-nav-btn lb-next" onclick="navLB(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="lb-counter" id="lbCounter"></div>
+    </div>
+</div>
+
+<script>
+    // ─── NAV SCROLL ───
+    function goTo(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    // ─── DRIVE IDS ───
+    const driveIds = [
+        '1h0u6IcERhqkLTNAmxWdEo_u_XeLWPyMs','1mTCtGYRzZAvUfBOOz9Xl0n-qkAz2o76p',
+        '1YfRT6YH7jQSWe_s5bIAc3k7V80EAx9_4','1GYnLvO7oNKA6al-DTg8_f6sAc1cYgcYa',
+        '1U_Xo_4XOm0PAP-OnO8bMIWEvNjzZTubY','1wEzuS6Fz81Y32U3uopJOBZdmcGayTTpe',
+        '1hN75tsOWd9sF-DvwI0uPPlf9Jx1EJ56Q','1Tge3VFHMyfaWiaARPWC4IKXtCgcveNKK',
+        '1KpjtwqRK-x_oj_2BM-S1pRntsUPz7Fme','1x43uqm1RZ2oY3xP_GWg03of3NTWLTDt7',
+        '1WCYop0NpfTN-NXpayu5cbnM1ZrgBclsg','12E5jRMXi5k75OCjK8cywuFePtDoRVic7',
+        '1Hn9RieN77LDKVDde9tlWYn0JGGwinv_H','1y3Nt378XlimeUizQPIq7EZUjHFirrv7w',
+        '1wcqjNt90J5S9blS7yUtrJ8Q-cUX8cBVD','1qK1O8hoR0wNBIvw_vZnFfX6_FDVmtsRd',
+        '1Vj-IPZjGfATNKLlz-Lu8-V9mLgtSY4JK','1XxU2tMmRxP2nKW0TFH0bN-Btk2G7XVW5',
+        '1BW7KoEPl43xE3M7EA8DWFscNMhO04j_H','1iiel1TMFxYhffdOo-a96OzclmF0-5IhH',
+        '1WpbtIrfayXDn7DnrMHxQFr0MHbI7DlbR','1UCmrlp6iwDzVKjnLr7RFMd0ET5dxZojD',
+        '1xqE0j-1rWe1ieB37oNeRl8jxksq7KYGC','1RoGaQlsROozEpDGfUXrlUBYDA4rkfVw6',
+        '1ZWdbztk5_i9oc1rJV-6egxFSwAkfeNQY','1jnz5TlERegnc017tCY19seEBYd_6tucN',
+        '1xlEDg0SgnGF4B4hA6AO-YXU4LrPjP8ty','1P_o4K2iC2nzQYwubui6l9lFbfyzx_ku1',
+        '1-qc_FVJkVbEaGMjjG-kG19r3TCTrvq4D','1qZ0Lv3i9All9O3mHXEuYpiYqXj1TaX6J',
+        '1jlH_JWxSDft0BdnT4zhn3nEOH54aGBw0','11b9CpYVIGVOj6HNENBUvRte35FLatOi_',
+        '1arzk32MzoSxFhu7VfiPUiV0JQlBx_VPI','1QIMs4ObJ3zJI6OIV3jXAkd1qjjS7xKYo',
+        '1Of8xwf4T4y5l3MaT5hRwxg83y6R9DoDj','1bm7Rb7L0CYAS2KatxkNfvMfeE_KQH_6y',
+        '1FCNz__f3QYYgh0_Mc-StxKTfjNF67MyH','1CWw_xKXhIgJe0449J6u--zdzyRdg_Vwu',
+        '1ZiGa9u32opNp7ALc97qEmo54B4utqgTH','1rljqckWrvzNx4VXz2j4bOHxH4I1fyoLZ',
+        '1XcdHZcEUp5SgfIQuzcbORkQA21kNwtGI','1007X2WYim-nn_ScBFPhwcGHHgm_lsecf',
+        '1upGi_Pe8_TcVgRBOpzHOMaDWPiJk1uLb','1qB6Ffquzlh2dA92JvQB9rTlfwid1boDj',
+        '1lI0L11wF8Gg0jSXDubGrL2YEh6PFGOXM','1xmxogzu-ylOX3KQFjU1IzKijHHXEOTsL',
+        '1LB_4mgpXQ6PkO3fCSo8dDtYMjulqtxQG'
+    ];
+    const labels = ['Activación PDV','Degustación en Vitrina','Equipo de Campo','Bevgo San Pedro','Portafolio Premium','Shopper Interaction','Bevgo Zazue','Whisky Old Parr','Vinos Moelia','Buchanans Display','Evidencia de Venta','Cierre de Campaña'];
+    const TOTAL = driveIds.length;
+    const PAGE = 4; // visible at once
+    let carIdx = 0;
+
+    // Build carousel
+    const track = document.getElementById('carouselTrack');
+    const dotsEl = document.getElementById('carDots');
+    document.getElementById('galleryCount').textContent = TOTAL + ' fotografías · haz clic para ampliar';
+
+    driveIds.forEach((id, i) => {
+        const item = document.createElement('div');
+        item.className = 'carousel-item';
+        item.innerHTML = `
+            <img src="https://drive.google.com/thumbnail?id=${id}&sz=w500" alt="Meico Bevgo" loading="lazy">
+            <div class="carousel-overlay"><span><i class="fas fa-expand-alt"></i>&nbsp;${labels[i % labels.length]}</span></div>
+        `;
+        item.addEventListener('click', () => openLB(i));
+        track.appendChild(item);
+    });
+
+    // Dots (one per group of PAGE)
+    const numDots = Math.ceil(TOTAL / PAGE);
+    for (let d = 0; d < numDots; d++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
+        dot.addEventListener('click', () => {
+            carIdx = d * PAGE;
+            scrollCarousel();
+        });
+        dotsEl.appendChild(dot);
+    }
+
+    function scrollCarousel() {
+        const items = track.querySelectorAll('.carousel-item');
+        if (items[carIdx]) {
+            items[carIdx].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+        // update dots
+        const dotEls = dotsEl.querySelectorAll('.carousel-dot');
+        const activeDot = Math.floor(carIdx / PAGE);
+        dotEls.forEach((d, i) => d.classList.toggle('active', i === activeDot));
+    }
+
+    function carNav(dir) {
+        carIdx = Math.max(0, Math.min(TOTAL - 1, carIdx + dir * PAGE));
+        scrollCarousel();
+    }
+
+    // ─── LIGHTBOX ───
+    let lbIdx = 0;
+    function openLB(idx) {
+        lbIdx = idx;
+        document.getElementById('lbImg').src = 'https://drive.google.com/thumbnail?id=' + driveIds[idx] + '&sz=w1200';
+        document.getElementById('lbCounter').textContent = (idx + 1) + ' / ' + TOTAL;
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLB() {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    function navLB(dir) {
+        lbIdx = (lbIdx + dir + TOTAL) % TOTAL;
+        document.getElementById('lbImg').src = 'https://drive.google.com/thumbnail?id=' + driveIds[lbIdx] + '&sz=w1200';
+        document.getElementById('lbCounter').textContent = (lbIdx + 1) + ' / ' + TOTAL;
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLB();
+    });
+    document.addEventListener('keydown', e => {
+        if (!document.getElementById('lightbox').classList.contains('open')) return;
+        if (e.key === 'Escape') closeLB();
+        if (e.key === 'ArrowRight') navLB(1);
+        if (e.key === 'ArrowLeft') navLB(-1);
+    });
+
+    // ─── REVEAL ───
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                Array.from(e.target.children).forEach((c, i) => c.style.transitionDelay = (i * 0.07) + 's');
+            }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
